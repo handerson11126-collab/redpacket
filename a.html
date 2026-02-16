@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Lucky Money</title>
+
 <style>
-body {
+body{
 margin:0;
 height:100vh;
 display:flex;
@@ -12,53 +14,64 @@ align-items:center;
 background:linear-gradient(135deg,#8B0000,#FF4C4C);
 overflow:hidden;
 }
-.envelope {
-width:220px;
-height:300px;
+
+.envelope{
+width:800px;
+height:1000px;
 background:#c40000;
 border-radius:12px;
 position:relative;
 cursor:pointer;
+box-shadow:0 0 20px rgba(0,0,0,0.3);
 }
-.envelope::before {
-content:"🧧";
-font-size:80px;
+
+/* 中間紅包圖片 */
+.envelope::after{
+content:"";
+width:600px;
+height:600px;
+background:url("kittycny.jpg");
+background-size:contain;
+background-repeat:no-repeat;
+background-position:center;
 position:absolute;
-top:40%;
+top:50%;
 left:50%;
 transform:translate(-50%,-50%);
 }
-.coin {
+
+/* 英鎊掉落特效 */
+.coin{
 position:absolute;
-font-size:24px;
+font-size:40px;
 animation:fall 2s linear infinite;
 }
-@keyframes fall {
-from {transform:translateY(-100px);}
-to {transform:translateY(800px);}
+
+@keyframes fall{
+from{transform:translateY(-100px);}
+to{transform:translateY(800px);}
 }
 </style>
 </head>
 
 <body>
 
-<div class="envelope" onclick="openPacket()"></div>
+<div class="envelope" onclick="openMoney()"></div>
 
 <script>
-function openPacket(){
-for(let i=0;i<20;i++){
+function openMoney(){
+window.location.href="https://revolut.me/p/OA6dU2HOFg";
+}
+
+for(let i=0;i<30;i++){
 let coin=document.createElement("div");
 coin.className="coin";
 coin.innerHTML="💷";
 coin.style.left=Math.random()*100+"vw";
+coin.style.animationDuration=(Math.random()*2+1)+"s";
 document.body.appendChild(coin);
-setTimeout(()=>coin.remove(),2000);
-}
-setTimeout(()=>{
-window.location.href="https://revolut.me/p/OA6dU2HOFg";
-},1500)
 }
 </script>
 
 </body>
-</html>
+</html>/html>
