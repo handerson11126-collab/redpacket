@@ -20,14 +20,7 @@ border-radius:12px;
 position:relative;
 cursor:pointer;
 }
-.envelope::before {
-content:"🧧";
-font-size:80px;
-position:absolute;
-top:40%;
-left:50%;
-transform:translate(-50%,-50%);
-}
+
 .coin {
 position:absolute;
 font-size:24px;
@@ -39,6 +32,34 @@ to {transform:translateY(800px);}
 }
 </style>
 </head>
+
+.envelope::after {
+content:"";
+width:120px;
+height:120px;
+background:url("1000058133-removebg-preview.png");
+background-size:contain;
+background-repeat:no-repeat;
+background-position:center;
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+}
+
+.envelope::after {
+content:"";
+width:120px;
+height:120px;
+background:url("packet.png");
+background-size:contain;
+background-repeat:no-repeat;
+background-position:center;
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+}
 
 <body>
 
@@ -55,10 +76,9 @@ document.body.appendChild(coin);
 setTimeout(()=>coin.remove(),2000);
 }
 setTimeout(()=>{
-window.location.href="https://revolut.me/p/c3IGB4jzJs";
+window.location.href="A_REVOLUT_LINK";
 },1500)
 }
 </script>
 
 </body>
-</html>
