@@ -1,5 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Lucky Money</title>
+
 <style>
-body {
+body{
 margin:0;
 height:100vh;
 display:flex;
@@ -9,21 +15,22 @@ background:linear-gradient(135deg,#8B0000,#FF4C4C);
 overflow:hidden;
 }
 
-.envelope {
+.envelope{
 width:220px;
 height:300px;
 background:#c40000;
 border-radius:12px;
 position:relative;
 cursor:pointer;
+box-shadow:0 0 20px rgba(0,0,0,0.3);
 }
 
-/* 👉 貼在這裡！ */
-.envelope::after {
+/* 中間紅包圖片 */
+.envelope::after{
 content:"";
-width:120px;
-height:120px;
-background:url("packet.png");
+width:130px;
+height:130px;
+background:url("1000058133-removebg-preview.png");
 background-size:contain;
 background-repeat:no-repeat;
 background-position:center;
@@ -33,14 +40,38 @@ left:50%;
 transform:translate(-50%,-50%);
 }
 
-.coin {
+/* 英鎊掉落特效 */
+.coin{
 position:absolute;
 font-size:24px;
 animation:fall 2s linear infinite;
 }
 
-@keyframes fall {
-from {transform:translateY(-100px);}
-to {transform:translateY(800px);}
+@keyframes fall{
+from{transform:translateY(-100px);}
+to{transform:translateY(800px);}
 }
 </style>
+</head>
+
+<body>
+
+<div class="envelope" onclick="openMoney()"></div>
+
+<script>
+function openMoney(){
+window.location.href="https://revolut.me/p/c3IGB4jzJs";
+}
+
+for(let i=0;i<30;i++){
+let coin=document.createElement("div");
+coin.className="coin";
+coin.innerHTML="💷";
+coin.style.left=Math.random()*100+"vw";
+coin.style.animationDuration=(Math.random()*2+1)+"s";
+document.body.appendChild(coin);
+}
+</script>
+
+</body>
+</html>
