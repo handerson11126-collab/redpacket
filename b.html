@@ -1,7 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 body {
 margin:0;
@@ -12,6 +8,7 @@ align-items:center;
 background:linear-gradient(135deg,#8B0000,#FF4C4C);
 overflow:hidden;
 }
+
 .envelope {
 width:220px;
 height:300px;
@@ -21,32 +18,7 @@ position:relative;
 cursor:pointer;
 }
 
-.coin {
-position:absolute;
-font-size:24px;
-animation:fall 2s linear infinite;
-}
-@keyframes fall {
-from {transform:translateY(-100px);}
-to {transform:translateY(800px);}
-}
-</style>
-</head>
-
-.envelope::after {
-content:"";
-width:120px;
-height:120px;
-background:url("1000058133-removebg-preview.png");
-background-size:contain;
-background-repeat:no-repeat;
-background-position:center;
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-}
-
+/* 👉 貼在這裡！ */
 .envelope::after {
 content:"";
 width:120px;
@@ -61,24 +33,14 @@ left:50%;
 transform:translate(-50%,-50%);
 }
 
-<body>
-
-<div class="envelope" onclick="openPacket()"></div>
-
-<script>
-function openPacket(){
-for(let i=0;i<20;i++){
-let coin=document.createElement("div");
-coin.className="coin";
-coin.innerHTML="💷";
-coin.style.left=Math.random()*100+"vw";
-document.body.appendChild(coin);
-setTimeout(()=>coin.remove(),2000);
+.coin {
+position:absolute;
+font-size:24px;
+animation:fall 2s linear infinite;
 }
-setTimeout(()=>{
-window.location.href="A_REVOLUT_LINK";
-},1500)
-}
-</script>
 
-</body>
+@keyframes fall {
+from {transform:translateY(-100px);}
+to {transform:translateY(800px);}
+}
+</style>
